@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port  = 6600
+const cors = require("cors")
 //import modules
 const addContactRouter = require('./Routers/addContactRouer')
 const registrationRoutes = require('./Routers/RegisterRouter')
@@ -16,6 +17,7 @@ mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true, useUnifiedTop
 })
 
 //midlewares manage
+app.use(cors())
 app.use("/app/v1", registrationRoutes)
 app.use("/app/v1", loginRouter)
 app.use("/app/v1", addContactRouter)
