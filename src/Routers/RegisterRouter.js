@@ -12,7 +12,7 @@ router.use(fileUploader({
     useTempFiles: true
 }))
 //get method
-router.post("/registation",
+router.post("/registration",
     body("name").isAlphanumeric(),
     body("email").isEmail(),
     body("password").isLength({ min: 6 }),

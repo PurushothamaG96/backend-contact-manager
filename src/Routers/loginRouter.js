@@ -1,6 +1,6 @@
 const express  =require("express")
 const router = express.Router()
-const {body, validationResult, Result} = require("express-validator")
+const {body, validationResult} = require("express-validator")
 const bcrypt = require("bcrypt")
 const logInModel = require("../models/login")
 const secret = "PURU"
@@ -25,9 +25,10 @@ router.post("/login",
         else{
             const {email, password} = req.body
             const data = await logInModel.findOne({email:email})
+            console.log(data)
             if(!data){
                 res.status(404).json({
-                    status:"failur",
+                    status:"failure",
                     message:"user invalid or need to register"
                 })
             }
