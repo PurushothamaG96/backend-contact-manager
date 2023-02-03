@@ -57,12 +57,6 @@ router.post("/registration",
         }
     })
 //post method
-router.get("/contacts", (req, resp) => {
-    try {
-        resp.send("router working")
-    } catch (e) {
-        console.log(e.message)
-    }
-})
+
 
 module.exports = router
