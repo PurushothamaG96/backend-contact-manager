@@ -14,7 +14,7 @@ router.use(express.urlencoded())
 //get method
 router.get("/contacts", async (req, resp) => {
     try {
-        const data = await contactModel.find().sort({name:1})
+        const data = await contactModel.find({user:req.user}).sort({name:1})
         resp.status(200).json({
             status: "Success",
             data
